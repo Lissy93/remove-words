@@ -6,8 +6,41 @@ _private = {}
 removeWords = (sentence, wordsArray=undefined) ->
   if !wordsArray?
     wordsArray = fs.readFileSync('./words.txt', 'utf8').split('\r\n')
+  else
+    wordsArray = formatWordsArr(wordsArray)
 
-  wordsArray
+  sentenceArr = arrayifySentence(sentence)
+
+  for dictionaryWord in wordsArray
+    for sentenceWord, index in sentenceArr
+      if sentenceWord == dictionaryWord
+        sentenceArr.splice(index,1)
+
+  sentenceArr
+
+
+# Format the sentence and return an array
+arrayifySentence = (sentence) ->
+  sentence = formatSentence(sentence)         # Lowercase + remove special chars
+  sentence = sentence.split(' ')              # Split into an array
+  sentence = sentence.filter((n) -> n != '')  # Remove blanks
+
+
+# Formats each element of the words array
+formatWordsArr = (wordsArr) ->
+  if !wordsArr instanceof Array
+    return []
+  for word, i in wordsArr
+    wordsArr[i] = formatSentence(word)
+  wordsArr
+
+# Removes URLs, special characters and then de-capitalizes a string
+formatSentence = (sentence) ->
+  sentence = if sentence? then sentence else '' # Double check is defined
+  sentence = sentence.toLowerCase()
+  sentence = sentence.replace(/(?:https?|ftp):\/\/[\n\S]+/g, '') # Remove URLs
+  sentence = sentence.replace(/[^\w\s]/gi, '') # Remove special characters
+
 
 
 module.exports = removeWords
