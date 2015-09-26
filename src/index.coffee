@@ -1,9 +1,13 @@
+
+fs = require 'fs'
+
 _private = {}
 
+removeWords = (sentence, wordsArray=undefined) ->
+  if !wordsArray?
+    wordsArray = fs.readFileSync('./words.txt', 'utf8').split('\r\n')
 
-removeWords = () ->
-  ['hello', 'world!']
-
+  wordsArray
 
 
 module.exports = removeWords

@@ -1,10 +1,18 @@
 (function() {
-  var _private, removeWords;
+  var _private, fs, removeWords;
+
+  fs = require('fs');
 
   _private = {};
 
-  removeWords = function() {
-    return ['hello', 'world!'];
+  removeWords = function(sentence, wordsArray) {
+    if (wordsArray == null) {
+      wordsArray = void 0;
+    }
+    if (wordsArray == null) {
+      wordsArray = fs.readFileSync('./words.txt', 'utf8').split('\r\n');
+    }
+    return wordsArray;
   };
 
   module.exports = removeWords;
