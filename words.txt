@@ -4,6 +4,7 @@ above
 across
 after
 against
+are
 all
 along
 although
@@ -56,6 +57,7 @@ herself
 him
 himself
 his
+how
 if
 in
 inside
@@ -111,6 +113,7 @@ someone
 something
 than
 that
+the
 their
 theirs
 them
