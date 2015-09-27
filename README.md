@@ -17,13 +17,22 @@ This can be used for storing just the keywords of a string in a database and not
 
 
 ## Example
-```
+```javascript
 var removeWords =  require('remove-words');
 
 removeWords("Today is sunny so we are going to go swimming at the seaside");
 // Will return: ['today', 'sunny', 'swimming', 'seaside']
+
+
 ```
 
+## Using a custom word list
+```javascript
+
+var names = ['jack', 'john', 'joe', 'james', 'jim']
+removeWords("The winners are: Jack, John and Jim!!!") 
+// Will remove just all names
+```
 
 ## Features
 - Case insensitive
