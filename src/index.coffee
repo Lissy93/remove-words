@@ -5,7 +5,7 @@ _private = {}
 
 removeWords = (sentence, wordsArray=undefined) ->
   if !wordsArray?
-    wordsArray = fs.readFileSync('./words.txt', 'utf8').split('\r\n')
+    wordsArray = fs.readFileSync(__dirname + '/words.txt', 'utf8').split('\r\n')
   else
     wordsArray =
       if typeof wordsArray == 'string' then [wordsArray] else wordsArray

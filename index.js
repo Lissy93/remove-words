@@ -11,7 +11,7 @@
       wordsArray = void 0;
     }
     if (wordsArray == null) {
-      wordsArray = fs.readFileSync('./words.txt', 'utf8').split('\r\n');
+      wordsArray = fs.readFileSync(__dirname + '/words.txt', 'utf8').split('\r\n');
     } else {
       wordsArray = typeof wordsArray === 'string' ? [wordsArray] : wordsArray;
       wordsArray = formatWordsArr(wordsArray);
