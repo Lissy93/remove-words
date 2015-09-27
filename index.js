@@ -1,5 +1,5 @@
 (function() {
-  var _private, arrayifySentence, formatSentence, formatWordsArr, fs, removeWords;
+  var _private, arrayifySentence, formatSentence, formatWordsArr, fs, removeDuplicates, removeWords;
 
   fs = require('fs');
 
@@ -13,8 +13,10 @@
     if (wordsArray == null) {
       wordsArray = fs.readFileSync('./words.txt', 'utf8').split('\r\n');
     } else {
+      wordsArray = typeof wordsArray === 'string' ? [wordsArray] : wordsArray;
       wordsArray = formatWordsArr(wordsArray);
     }
+    sentence = typeof sentence === 'string' ? sentence : '';
     sentenceArr = arrayifySentence(sentence);
     for (j = 0, len = wordsArray.length; j < len; j++) {
       dictionaryWord = wordsArray[j];
@@ -25,7 +27,7 @@
         }
       }
     }
-    return sentenceArr;
+    return removeDuplicates(sentenceArr);
   };
 
   arrayifySentence = function(sentence) {
@@ -53,6 +55,30 @@
     sentence = sentence.toLowerCase();
     sentence = sentence.replace(/(?:https?|ftp):\/\/[\n\S]+/g, '');
     return sentence = sentence.replace(/[^\w\s]/gi, '');
+  };
+
+  removeDuplicates = function(arr) {
+    var j, key, ref, res, results, value;
+    if (arr.length === 0) {
+      return [];
+    }
+    res = {};
+    for (key = j = 0, ref = arr.length - 1; 0 <= ref ? j <= ref : j >= ref; key = 0 <= ref ? ++j : --j) {
+      res[arr[key]] = arr[key];
+    }
+    results = [];
+    for (key in res) {
+      value = res[key];
+      results.push(value);
+    }
+    return results;
+  };
+
+  _private = {
+    arrayifySentence: arrayifySentence,
+    formatWordsArr: formatWordsArr,
+    formatSentence: formatSentence,
+    removeDuplicates: removeDuplicates
   };
 
   module.exports = removeWords;

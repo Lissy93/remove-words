@@ -7,7 +7,11 @@ removeWords = (sentence, wordsArray=undefined) ->
   if !wordsArray?
     wordsArray = fs.readFileSync('./words.txt', 'utf8').split('\r\n')
   else
+    wordsArray =
+      if typeof wordsArray == 'string' then [wordsArray] else wordsArray
     wordsArray = formatWordsArr(wordsArray)
+
+  sentence = if typeof sentence == 'string' then sentence else ''
 
   sentenceArr = arrayifySentence(sentence)
 
@@ -16,7 +20,7 @@ removeWords = (sentence, wordsArray=undefined) ->
       if sentenceWord == dictionaryWord
         sentenceArr.splice(index,1)
 
-  sentenceArr
+  removeDuplicates(sentenceArr)
 
 
 # Format the sentence and return an array
@@ -41,6 +45,20 @@ formatSentence = (sentence) ->
   sentence = sentence.replace(/(?:https?|ftp):\/\/[\n\S]+/g, '') # Remove URLs
   sentence = sentence.replace(/[^\w\s]/gi, '') # Remove special characters
 
+
+removeDuplicates = (arr) ->
+  if arr.length == 0
+    return []
+  res = {}
+  res[arr[key]] = arr[key] for key in [0..arr.length-1]
+  value for key, value of res
+
+_private = {
+  arrayifySentence: arrayifySentence
+  formatWordsArr:   formatWordsArr
+  formatSentence:   formatSentence
+  removeDuplicates: removeDuplicates
+}
 
 
 module.exports = removeWords
