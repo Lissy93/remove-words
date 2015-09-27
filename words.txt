@@ -2,9 +2,11 @@ aboard
 about
 above
 across
+and
 after
 against
 are
+going
 all
 along
 although
@@ -22,6 +24,7 @@ at
 because
 before
 behind
+be
 below
 beneath
 beside
@@ -60,6 +63,7 @@ his
 how
 if
 in
+is
 inside
 into
 it
@@ -81,6 +85,7 @@ near
 neither
 nobody
 none
+not
 nothing
 now
 of
@@ -108,6 +113,7 @@ several
 she
 since
 some
+so
 somebody
 someone
 something
@@ -125,6 +131,7 @@ those
 though
 through
 to
+too
 toward
 towards
 under
@@ -149,6 +156,7 @@ whichever
 while
 who
 whoever
+why
 whom
 whomever
 whose
