@@ -15,7 +15,6 @@ var footer  = require('gulp-footer');
 var size    = require('gulp-size');
 var mocha   = require('gulp-mocha');
 var istanbul= require('gulp-istanbul');
-var watch   = require('gulp-watch');
 //var uglify  = require('gulp-uglify'); // Uncomment here and below to minify js
 
 require('coffee-script/register');
@@ -24,7 +23,7 @@ var footerTxt = "\/* (C) Alicia Sykes <alicia@aliciasykes.com> 2015           " 
     "*\\\r\n\\* MIT License. Read full license at: https:\/\/goo.gl\/IL4lQJ *\/";
 
 /* Delete the files currently in finished directory */
-gulp.task('clean', function (cb) {
+gulp.task('clean', function () {
     return gulp.src('./index.js', {read: false})
         .pipe(clean());
 });
@@ -38,7 +37,7 @@ gulp.task('build', ['clean'],  function(){
         //.pipe(uglify()) // Uncomment to minify JS
         .pipe(footer(footerTxt))
         .pipe(size())
-        .pipe(gulp.dest('./'))
+        .pipe(gulp.dest('./'));
 });
 
 /* Run unit tests and generate coverage report */
@@ -63,7 +62,7 @@ gulp.task('watch', function(){
 
 /* Don't test, until it has built, to avoid file not found errors */
 gulp.task('test-after-build',['build'],function(){
-    gulp.start('test')
+    gulp.start('test');
 });
 
 /* Defualt gulp task, deletes old files, compiles source files and runs tests */
