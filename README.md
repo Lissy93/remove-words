@@ -30,7 +30,7 @@ removeWords("Today is sunny so we are going to go swimming at the seaside");
 ```javascript
 
 var names = ['jack', 'john', 'joe', 'james', 'jim']
-removeWords("The winners are: Jack, John and Jim!!!") 
+removeWords("The winners are: Jack, John and Jim!!!", names) 
 // Will remove just all names
 ```
 
