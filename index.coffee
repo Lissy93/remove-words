@@ -1,5 +1,7 @@
+fs = require('fs')
 
-fs = require 'fs'
+require.extensions['.txt'] = (module, filename) ->
+  module.exports = fs.readFileSync(filename, 'utf8')
 
 _private = {}
 
@@ -21,6 +23,8 @@ removeWords = (sentence, wordsArray=undefined) ->
         sentenceArr.splice(index,1)
 
   removeDuplicates(sentenceArr)
+
+
 
 
 # Format the sentence and return an array
