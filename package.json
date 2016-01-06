@@ -1,6 +1,6 @@
 {
   "name": "remove-words",
-  "version": "0.1.5",
+  "version": "0.1.6",
   "description": "A node module that returns all words from a string not that were not in a specified list. By default will remove all pronouns and conjunctions",
   "main": "index.js",
   "directories": {
