@@ -36,7 +36,7 @@ gulp.task('build', ['clean'],  function(){
         .pipe(lint.reporter())
         .pipe(coffee())
         .pipe(brfs())
-        .pipe(uglify())
+        // .pipe(uglify())
         .pipe(footer(footerTxt))
         .pipe(size())
         .pipe(gulp.dest('./'));
