@@ -1,8 +1,5 @@
 fs = require('fs')
 
-require.extensions['.txt'] = (module, filename) ->
-  module.exports = fs.readFileSync(filename, 'utf8')
-
 _private = {}
 
 removeWords = (sentence, wordsArray=undefined) ->
@@ -25,8 +22,6 @@ removeWords = (sentence, wordsArray=undefined) ->
   removeDuplicates(sentenceArr)
 
 
-
-
 # Format the sentence and return an array
 arrayifySentence = (sentence) ->
   sentence = formatSentence(sentence)         # Lowercase + remove special chars
@@ -41,6 +36,7 @@ formatWordsArr = (wordsArr) ->
   for word, i in wordsArr
     wordsArr[i] = formatSentence(word)
   wordsArr
+
 
 # Removes URLs, special characters and then de-capitalizes a string
 formatSentence = (sentence) ->
