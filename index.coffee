@@ -2,7 +2,7 @@ fs = require('fs')
 
 _private = {}
 
-removeWords = (sentence, wordsArray=undefined) ->
+removeWords = (sentence, getRidOfDuplicates=true, wordsArray=undefined) ->
   if !wordsArray?
     wordsArray = fs.readFileSync(__dirname + '/words.txt', 'utf8').split('\r\n')
   else
@@ -18,8 +18,8 @@ removeWords = (sentence, wordsArray=undefined) ->
     for sentenceWord, index in sentenceArr
       if sentenceWord == dictionaryWord
         sentenceArr.splice(index,1)
-
-  removeDuplicates(sentenceArr)
+  if getRidOfDuplicates then return removeDuplicates(sentenceArr)
+  else return sentenceArr
 
 
 # Format the sentence and return an array

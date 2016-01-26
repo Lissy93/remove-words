@@ -5,8 +5,11 @@
 
   _private = {};
 
-  removeWords = function(sentence, wordsArray) {
+  removeWords = function(sentence, getRidOfDuplicates, wordsArray) {
     var dictionaryWord, index, j, k, len, len1, sentenceArr, sentenceWord;
+    if (getRidOfDuplicates == null) {
+      getRidOfDuplicates = true;
+    }
     if (wordsArray == null) {
       wordsArray = void 0;
     }
@@ -27,7 +30,11 @@
         }
       }
     }
-    return removeDuplicates(sentenceArr);
+    if (getRidOfDuplicates) {
+      return removeDuplicates(sentenceArr);
+    } else {
+      return sentenceArr;
+    }
   };
 
   arrayifySentence = function(sentence) {
