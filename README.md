@@ -12,7 +12,7 @@
 This can be used for storing just the keywords of a string in a database and not wasting space with words like 'and', 'to', 'the'... which are unlikely to be searched for in a query.
 
 
-## Installation 
+## Installation
 ```npm install remove-words --save```
 
 
@@ -26,20 +26,30 @@ removeWords("Today is sunny so we are going to go swimming at the seaside");
 
 ```
 
+## Removing duplicates
+By default all duplicates will be removed. The second (optional) parameter is a
+boolean, specifiying weather of not to remove duplicates.
+
+```javascript
+removeWords("Hello world hello hello", true); // ["hello", "world"]
+removeWords("Hello world hello hello", false); // ["hello", "world", "hello", "hello"]
+```
+
 ## Using a custom word list
 ```javascript
 
 var names = ['jack', 'john', 'joe', 'james', 'jim']
-removeWords("The winners are: Jack, John and Jim!!!", names) 
+removeWords("The winners are: Jack, John and Jim!!!", true, names)
 // Will remove just all names
 ```
 
 ## Features
 - Case insensitive
 - Handles special characters, URL's and other non standard strings
-- Doesn't return any duplicates or blanks 
+- By default doesn't return any duplicates, but can be specified in 2nd parameter
+- Doesn't return blanks or special characters
 - Thoroughly unit tested
-- Words list is customisable, optionally pass in your own array as the second parameter
+- Words list is customisable, optionally pass in your own array as the third parameter
 
 
 ## Tests
@@ -53,4 +63,4 @@ Run ```npm test```
 
 
 ## License
-MIT © [Alicia Sykes](http://aliciasykes.com)
+MIT ï¿½ [Alicia Sykes](http://aliciasykes.com)
