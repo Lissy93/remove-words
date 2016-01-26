@@ -194,3 +194,7 @@ say
 do
 must
 let
+out
+know
+own
+dont
