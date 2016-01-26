@@ -7,9 +7,9 @@ removeWords = require('../index').main
 describe 'Check the main method at high level', ()->
 
   it 'Should return an array given any input', ()->
-#    expect(removeWords('Hello World!')).to.be.instanceof(Array);
-#    expect(removeWords('')).to.be.instanceof(Array);
-#    expect(removeWords('', '')).to.be.instanceof(Array);
+   expect(removeWords('Hello World!')).to.be.instanceof(Array);
+   expect(removeWords('')).to.be.instanceof(Array);
+   expect(removeWords('', '')).to.be.instanceof(Array);
 
   it 'Should strip out generic keywords', ()->
 #    expect(removeWords('Is it going to be sunny in London?'))
@@ -28,16 +28,16 @@ describe 'Check the main method at high level', ()->
   it 'Should be able to cope with all special characters', ()->
 #    expect(removeWords('omg!! *CoffeeScript* is so totally amazing!!!*&("&*&"^'))
 #    .eql(['omg', 'coffeescript', 'totally', 'amazing'])
-#    expect(removeWords('t.o.o mu£c%h p*u*n*c*t*u-a-t-i-o=n i*s n^o$t co[o]l}{'))
+#    expect(removeWords('t.o.o muï¿½c%h p*u*n*c*t*u-a-t-i-o=n i*s n^o$t co[o]l}{'))
 #    .eql(['punctuation', 'cool'])
 
   it 'Should remove specified keywords from an array in the second param', ()->
-    expect(removeWords('everything is stupid', ['everything', 'is'])).eql(['stupid'])
-    expect(removeWords('CoffeeScript, JavaScript, HTML are cool', ['html', 'are']))
+    expect(removeWords('everything is stupid', true, ['everything', 'is'])).eql(['stupid'])
+    expect(removeWords('CoffeeScript, JavaScript, HTML are cool', true, ['html', 'are']))
     .eql(['coffeescript', 'javascript', 'cool'])
 
   it 'Should accept a string as the second param', ()->
-    expect(removeWords('everything is stupid', 'stupid'))
+    expect(removeWords('everything is stupid', true, 'stupid'))
     .eql(['everything', 'is'])
 
   it 'Should remove duplicates', ()->
@@ -59,4 +59,3 @@ describe 'Check the main method at high level', ()->
     removeWords('', 0)          # Passes integer as second param
     removeWords('', '')         # Passes empty string as second param
     removeWords('', '', '')     # Passes three paramaters
-
