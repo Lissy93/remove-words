@@ -21,9 +21,11 @@ anything
 are
 around
 as
+asked
 at
 be
 because
+been
 before
 behind
 below
@@ -59,8 +61,12 @@ following
 for
 from
 get
+give
 go
 going
+got
+had
+having
 he
 her
 hers
@@ -71,6 +77,7 @@ his
 how
 i
 if
+im
 in
 inside
 into
@@ -80,11 +87,13 @@ its
 itself
 just
 know
+left
 let
 like
 little
 many
 me
+might
 mine
 minus
 more
@@ -94,8 +103,10 @@ must
 my
 myself
 near
+needs
 neither
 never
+new
 no
 nobody
 none
@@ -131,6 +142,7 @@ say
 see
 several
 she
+side
 since
 so
 some
@@ -140,6 +152,7 @@ something
 take
 than
 that
+that 
 the
 their
 theirs
@@ -190,6 +203,7 @@ will
 with
 within
 without
+would
 you
 your
 yours
