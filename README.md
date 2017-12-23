@@ -5,6 +5,7 @@
 [![Dependency Status](https://david-dm.org/lissy93/remove-words.svg)](https://david-dm.org/lissy93/remove-words)
 [![devDependency Status](https://david-dm.org/lissy93/remove-words/dev-status.svg)](https://david-dm.org/lissy93/remove-words#info=devDependencies)
 [![Code Climate](https://codeclimate.com/github/Lissy93/remove-words/badges/gpa.svg)](https://codeclimate.com/github/Lissy93/remove-words)
+[![Maintenance](https://img.shields.io/maintenance/yes/2018.svg)](https://github.com/Lissy93)
 
 
 >A node module that returns an array of all words in a string that are not a pronoun or generic words.
