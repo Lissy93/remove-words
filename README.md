@@ -13,7 +13,7 @@ This can be used for storing just the keywords of a string in a database and not
 
 
 ## Installation
-```npm install remove-words --save```
+```yarn add remove-words --save```
 
 
 ## Example
@@ -62,5 +62,18 @@ Run ```npm test```
 - `gulp` - Watches for changes, cleans working directory, builds and tests
 
 
+## Contributing
+If you find an issue:
+ - Feel free to raise it as an issue [here](https://github.com/Lissy93/remove-words/issues)
+ (give as much detail about your scenario as possible) and I'll look into it
+ - Or better yet submit a pull request with your feature or fix. Ensure all tests still pass
+ and give a short sentence of why it should be merged in the PR description.
+
+## Development
+- Clone the repo and cd into it. `git clone https://github.com/Lissy93/remove-words.git && cd $(basename $_ .git)`
+- Install dev dependencies `yarn install --production=false`
+- Build and/or watch `npm run build`/ `npm run watch`
+- Make changes, then run `npm test`
+
 ## License
-MIT � [Alicia Sykes](http://aliciasykes.com)
+MIT © [Alicia Sykes](http://aliciasykes.com) 2017. [View licence](LICENSE.MD).
