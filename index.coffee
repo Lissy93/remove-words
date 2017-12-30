@@ -1,11 +1,10 @@
-
-fs = require 'fs'
+fs = require('fs')
 
 _private = {}
 
-removeWords = (sentence, wordsArray=undefined) ->
+removeWords = (sentence, getRidOfDuplicates=true, wordsArray=undefined) ->
   if !wordsArray?
-    wordsArray = fs.readFileSync('./words.txt', 'utf8').split('\r\n')
+    wordsArray = fs.readFileSync(__dirname + '/words.txt', 'utf8').split('\r\n')
   else
     wordsArray =
       if typeof wordsArray == 'string' then [wordsArray] else wordsArray
@@ -19,8 +18,8 @@ removeWords = (sentence, wordsArray=undefined) ->
     for sentenceWord, index in sentenceArr
       if sentenceWord == dictionaryWord
         sentenceArr.splice(index,1)
-
-  removeDuplicates(sentenceArr)
+  if getRidOfDuplicates then return removeDuplicates(sentenceArr)
+  else return sentenceArr
 
 
 # Format the sentence and return an array
@@ -37,6 +36,7 @@ formatWordsArr = (wordsArr) ->
   for word, i in wordsArr
     wordsArr[i] = formatSentence(word)
   wordsArr
+
 
 # Removes URLs, special characters and then de-capitalizes a string
 formatSentence = (sentence) ->

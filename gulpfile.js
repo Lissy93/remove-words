@@ -15,7 +15,8 @@ var footer  = require('gulp-footer');
 var size    = require('gulp-size');
 var mocha   = require('gulp-mocha');
 var istanbul= require('gulp-istanbul');
-//var uglify  = require('gulp-uglify'); // Uncomment here and below to minify js
+var brfs    = require('gulp-brfs');
+var uglify  = require('gulp-uglify');
 
 require('coffee-script/register');
 
@@ -30,11 +31,12 @@ gulp.task('clean', function () {
 
 /* Lint, compile and minify CoffeeScript */
 gulp.task('build', ['clean'],  function(){
-    return gulp.src('./src/**/*.coffee')
+    return gulp.src('./index.coffee')
         .pipe(lint())
         .pipe(lint.reporter())
         .pipe(coffee())
-        //.pipe(uglify()) // Uncomment to minify JS
+        .pipe(brfs())
+        // .pipe(uglify())
         .pipe(footer(footerTxt))
         .pipe(size())
         .pipe(gulp.dest('./'));
@@ -56,7 +58,7 @@ gulp.task('test', function (cb) {
 
 /* Watch for changes and refresh */
 gulp.task('watch', function(){
-    gulp.watch('./src/**/*.coffee', ['test-after-build']);
+    gulp.watch('./index.coffee', ['test-after-build']);
     gulp.watch('./test/**/*.coffee', ['test']);
 });
 
@@ -66,4 +68,4 @@ gulp.task('test-after-build',['build'],function(){
 });
 
 /* Defualt gulp task, deletes old files, compiles source files and runs tests */
-gulp.task('default', ['test-after-build', 'watch']);
+gulp.task('default', ['test-after-build']);
